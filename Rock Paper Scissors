@@ -1,0 +1,80 @@
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+option=[rock, paper, scissors]
+length = len(option)
+flag=0
+
+n=int(input("How many times do you want to play? "))
+print("Enter your choice!!\n1. Rock\n2. Paper\n3.Scissors.\n")
+
+for i in range(n):
+    player_input = int(input("\nYour choice: "))
+    if player_input > 3 or player_input < 1:
+        print("Invalid number, you lose!")
+        break
+    else:
+        player_choice = option[player_input-1]
+        computer_input = random.randint(1, length)
+        computer_choice = option[computer_input-1]
+        
+        print(player_choice)
+        print(f"Computer chose: {computer_input}\n{computer_choice}")
+          
+        if player_input == 1 and computer_input == 1:
+            print("It's a draw")
+        elif player_input == 1 and computer_input == 2:
+            print("You lose!")
+            flag-=1
+        elif player_input == 1 and computer_input == 3:
+            print("You win!")
+            flag+=1
+            
+        if player_input == 2 and computer_input == 2:
+            print("It's a draw")
+        elif player_input == 2 and computer_input == 3:
+            print("You lose!")
+            flag-=1
+        elif player_input == 2 and computer_input == 1:
+            print("You win!")
+            flag+=1
+            
+        if player_input == 3 and computer_input == 3:
+            print("It's a draw")
+        elif player_input == 3 and computer_input == 1:
+            print("You lose!")
+            flag-=1
+        elif player_input == 3 and computer_input == 2:
+            print("You win!")
+            flag+=1
+    
+if (flag>0):
+    print("CONGRATULATIONS!! YOU'VE WON THE GAME!!\n")
+else:
+    print("SORRY!! YOU'VE LOST THE GAME!!\n")
