@@ -83,5 +83,7 @@ for i in range(n):
     
 if (flag>0):
     print("\nCONGRATULATIONS!! YOU'VE WON THE GAME!!\n")
+elif flag==0:
+    print("\nDON'T BE SAD, IT'S A DRAW!!\n")
 else:
     print("\nSORRY!! YOU'VE LOST THE GAME!!\n")
